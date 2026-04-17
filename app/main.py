@@ -101,8 +101,8 @@ def ready_endpoint():
         raise HTTPException(status_code=503, detail="Service not initialized.")
     try:
         r.ping()
-    except Exception:
-        raise HTTPException(status_code=503, detail="Dependencies (Redis) failure.")
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=f"Dependencies (Redis) failure: {e}")
     return {"status": "ready"}
 
 class AskRequest(BaseModel):
