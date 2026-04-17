@@ -1,4 +1,7 @@
 # Day 12 Lab - Mission Answers
+> **Student Name:** Nguyễn Đức Duy
+> **Student ID:** 2A202600480
+> **Date:** 18/04/2026
 
 ## Part 1: Localhost vs Production
 
