@@ -1,8 +1,7 @@
 # Deployment Information
 
 ## Public URL
-- `https://your-agent.railway.app`
-*(Hãy thay URL ở trên bằng URL Cloud thật của bạn)*
+- `https://day12-agent-deployment-production-9cdf.up.railway.app`
 
 ## Platform
 - Render / Railway
@@ -11,13 +10,13 @@
 
 ### Health Check (Kiểm tra xem hệ thống đã sống chưa)
 ```bash
-curl https://your-agent.railway.app/health
+curl https://day12-agent-deployment-production-9cdf.up.railway.app/health
 ```
 *(Kỳ vọng API trả về : {"status": "ok", ...})*
 
 ### API Test (Test request thành công)
 ```bash
-curl -X POST https://your-agent.railway.app/ask \
+curl -X POST https://day12-agent-deployment-production-9cdf.up.railway.app/ask \
   -H "X-API-Key: my-super-secret-key-123" \
   -H "Content-Type: application/json" \
   -d '{"user_id": "SV01", "question": "Hệ Mặt Trời có mấy hành tinh?"}'
@@ -26,7 +25,7 @@ curl -X POST https://your-agent.railway.app/ask \
 ### Rate Limiting Test (Test gửi 15 lượt gọi nhanh liên tiếp)
 ```bash
 for i in {1..15}; do 
-  curl -H "X-API-Key: my-super-secret-key-123" https://your-agent.railway.app/ask \
+  curl -H "X-API-Key: my-super-secret-key-123" https://day12-agent-deployment-production-9cdf.up.railway.app/ask \
     -X POST -d '{"user_id":"test_limit","question":"test"}'; 
 done
 ```
