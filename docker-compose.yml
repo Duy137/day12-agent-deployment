@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  agent:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+        # Development override cho local
+      - REDIS_URL=redis://redis:6379/0
+      - AGENT_API_KEY=my-super-secret-key-123
+      - PORT=8000
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
